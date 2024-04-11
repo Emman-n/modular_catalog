@@ -1,0 +1,13 @@
+
+                        {detail.map(product => (
+                            
+                        <div key={product.product_id}>
+                            
+                            <p>Product ID: {product.product_id}</p>
+                            <p>Product Name: {product.product_name}</p>
+                            <p>Product Details: {product.details}</p>
+                            <Link to={`/Details/${product.product_id}`} className='btn btn-sm btn-info' >INFO</Link>
+                            <Link to={`/NewProd/${product.idcategories}`} className='btn btn-sm btn-info'>ADD Product</Link>
+
+
+

@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com') crossorigin;
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+
+html {
+  height: 100%;
+  width: 100%;
+  min-width: 100%;
+ }
+
+ 
+
+.card-body {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+ 
+
+img {
+  height: 200px;
+  min-width: 200px;
+  text-align: center;
+
+  object-fit: cover;
+}
+
+.services-section img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.resize-sanitario img {
+  max-width: 300px;
+}
+
+
+
+.buttonEdit{
+
+    width: 80px;
+    font-size: 10px;
+    
+}
+
+
+.buttonEditProd{
+
+  width: 90px;
+  font-size: 10px;
+  justify-content: center;
+  margin-left: 300px;
+  
+}
+
+ 
+
+.buttonADD{
+
+    width: 113px;
+    font-size: 12px;
+    
+}
+
+.container{
+
+    margin-top: 5px;
+
+    
+    margin-bottom: 5px;
+
+}
+
+
+
+
+.text-format {
+  text-decoration: none;
+}
+
+
+.product-info{
+font-size: 20px;
+
+}
+
+
+.custom-container {
+  height: 500px; /* Adjust the height as needed */
+}
+
+
+
+.custom-column {
+  height: 100%; /* Adjust the height as needed */
+}
+
+.prodct-title{
+ 
+font-size: 50px;
+
+}
+
+
+.NavTitle {
+  width: 100vw;
+  min-height: 7vh;
+  background: #000000;
+  font-family: 'Tajawal', sans-serif;
+  color: azure;
+  text-decoration: none;
+
+}
+
+
+.NavTitle ul li{
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 20px;
+  font-size: 20px;
+}
+
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px;
+ 
+ }
+
+
+.center-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+
+ 
