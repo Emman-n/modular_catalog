@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "./config"; // Adjust the path if necessary
 
 const NewProd = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [values, setValues] = useState({
     product_name: "",
-    details: "",
-    image: "",
+    product_details: "",
+    product_image: "",
   });
 
   const [file, setFile] = useState();
@@ -21,16 +22,16 @@ const NewProd = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("image", file);
+    formData.append("product_image", file);
     formData.append("product_name", values.product_name);
-    formData.append("details", values.details);
+    formData.append("product_details", values.product_details);
     formData.append("price", values.price);
 
     axios
-      .post(`http://localhost:8081/addProd/${id}`, formData)
+      .post(`${BASE_URL}addProd/${id}`, formData)
       .then((res) => {
         console.log(res);
-         navigate(`/CategorieS/${id}`);
+        navigate(`/CategorieS/${id}`);
       })
       .catch((err) => {
         console.log(err);
@@ -41,7 +42,7 @@ const NewProd = () => {
 <div>
 <h1 className="center-title">ADD PRODD</h1>
 
-    <div class="center-container ">
+    <div className="center-container ">
     
       <div >
         <form>
@@ -61,7 +62,7 @@ const NewProd = () => {
               type="text"
               className="form-control"
               onChange={(e) =>
-                setValues({ ...values, details: e.target.value })
+                setValues({ ...values, product_details: e.target.value })
               }
             />
           </div>

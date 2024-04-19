@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "./config"; // Adjust the path if necessary
 
 const EditProd = () => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ const EditProd = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8081/product/${id}`)
+      .get(`${BASE_URL}product/${id}`)
       .then((res) => {
         console.log(res);
         // Update state using functional update form
@@ -17,9 +18,9 @@ const EditProd = () => {
           ...v,
           product_id: res.data[0].product_id,
           product_name: res.data[0].product_name,
-          details: res.data[0].details,
+          details: res.data[0].product_details,
           price: res.data[0].price,
-          image: res.data[0].image,
+          image: res.data[0].product_image,
         }));
       })
       .catch((err) => console.log(err));
@@ -28,14 +29,14 @@ const EditProd = () => {
   const [values, setValues] = useState({
     product_id: "",
     product_name: "",
-    details: "",
+    product_details: "",
     price: "",
   });
 
   const handleUpdate = (event) => {
     event.preventDefault();
     axios
-      .put(`http://localhost:8081/editprod/${id}`, values)
+      .put(`${BASE_URL}editprod/${id}`, values)
       .then((res) => {
         console.log(res);
         alert('Product info UPDATED');
@@ -45,7 +46,7 @@ const EditProd = () => {
 
   const handleCatDel = (id) => {
     axios
-      .delete(`http://localhost:8081/deleteProd/${id}`)
+      .delete(`${BASE_URL}deleteProd/${id}`)
       .then((res) => {
         console.log(res);
         navigate("/");
@@ -58,14 +59,14 @@ const EditProd = () => {
   return (
     <div>
     <h1 className="center-title">EDIT PRODUCT INFO</h1>
-    <div class="center-container ">
+    <div className="center-container ">
       <form onSubmit={handleUpdate}>
         <h2>ID: {values.product_id}</h2>
  
         <div className="mb-2">
           <img
             style={{ width: "200px" }}
-            src={`http://localhost:8081/images/` + values.image}
+            src={`${BASE_URL}images/` + values.image}
             alt="no image"
           />
           <br></br>
@@ -91,12 +92,12 @@ const EditProd = () => {
           <label>Product details:</label>
           <br></br>
           <textarea
-            placeholder={values.details}
+            placeholder={values.product_details}
             rows="5"
             cols="33"
             className="form-control-details"
-            value={values.details}
-            onChange={(e) => setValues({ ...values, details: e.target.value })}
+            value={values.product_details}
+            onChange={(e) => setValues({ ...values, product_details: e.target.value })}
           />
 
         </div>

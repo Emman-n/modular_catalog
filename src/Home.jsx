@@ -3,13 +3,15 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import './style.css';
+import { BASE_URL } from "./config"; // Adjust the path if necessary
+
 
 const Home = () => {
 const [data, setData] = useState([]);
 
 useEffect(() => {
 axios
-.get("http://localhost:8081/")
+.get(`${BASE_URL}`)
 .then((res) => {
 setData(res.data);
 })
@@ -25,7 +27,7 @@ return (
       <div className="col-lg-4-title    text-center">
         <h1>Catalogo</h1>
         <h6> <a href="/NewCat" className="btn btn-success buttonADD">
-            Add categorie +
+            Add category +
           </a>
         </h6>
       </div>
@@ -33,21 +35,21 @@ return (
 
     <div className="container" >
       <div className="row" >
-        {data.map((categorie, index) => (
+        {data.map((category, index) => (
         <div key={index} className="col-md-4" style={{ marginTop: "20px" }}>
 
           <div className="card border-10px bg-light">
-            <Link to={`/EditCat/${categorie.idcategories}`} className="btn btn-info buttonEdit">Edit</Link>
+            <Link to={`/EditCat/${category.idcategories}`} className="btn btn-info buttonEdit">Edit</Link>
 
-            <Link to={`/CategorieS/${categorie.idcategories}`} className="hover">
+            <Link to={`/CategorieS/${category.idcategories}`} className="hover">
             <div className="services-section">
               <div className="card-body">
-                <img style={{ width: "300px" }} src={`http://localhost:8081/images/${categorie.cat_image}`}
-                  alt="noImage" />
+                <img style={{ width: "300px" }} src={`http://localhost:8081/images/${category.cat_image}`}
+                  alt={`${category.cat_image}`} />
               </div>
             </div>
-            
-            <h5 style={{ textAlign: "center" }}>{categorie.categorie}</h5>
+   
+            <h5 style={{ textAlign: "center" }}>{category.category_name}</h5>
 
             </Link>
           </div>

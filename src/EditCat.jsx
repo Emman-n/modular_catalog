@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from "./config"; // Adjust the path if necessary
 
 
 
@@ -11,7 +12,7 @@ const EditCat = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8081/categorie/${id}`)
+      .get(`${BASE_URL}categorie/${id}`)
       .then((res) => {
         console.log(res);
         // Update state using functional update form
@@ -35,7 +36,7 @@ const EditCat = () => {
 
 const handleUpdate = (event)=>{
     event.preventDefault();
-    axios.put(`http://localhost:8081/editcat/${id}`, values)
+    axios.put(`${BASE_URL}editcat/${id}`, values)
     .then(res=>{
         console.log(res)
     }).catch((err) => console.log(err));
@@ -43,7 +44,7 @@ const handleUpdate = (event)=>{
 
 
 const handleCatDel = (id) => {
-  axios.delete(`http://localhost:8081/deleteCat/${id}`)
+  axios.delete(`${BASE_URL}deleteCat/${id}`)
     .then(res => {
       console.log(res)
       navigate('/');
@@ -65,7 +66,7 @@ const handleCatDel = (id) => {
 
         <div className="mb-2">
       
-        <img style={{ width: '200px' }} src={`http://localhost:8081/images/` + values.cat_image} alt="fuuck"/>
+        <img style={{ width: '200px' }} src={`${BASE_URL}images/` + values.cat_image} alt="no image"/>
         <input type="file"  onChange={(e) => setValues({ ...values, cat_image: e.target.value })} />
 
 <br></br>

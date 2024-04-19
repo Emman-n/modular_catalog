@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "./config"; // Adjust the path if necessary
 
 const NewCat = () => {
   const navigate = useNavigate();
@@ -27,8 +28,8 @@ const NewCat = () => {
     formData.append("details", values.details);
 
     axios
-      .post("http://localhost:8081/categories", formData)
-      .then((res) => {
+    .post(`${BASE_URL}categories`, formData) 
+    .then((res) => {
         console.log(res);
         navigate("/");
       })
@@ -39,7 +40,7 @@ const NewCat = () => {
     <div>
        <h1 className="center-title">New Categorie</h1>
        <br></br>
-      <div class="center-container ">
+      <div className="center-container ">
         <form>
           <div className="mb-2">
             <label>Categorie name:</label>

@@ -3,6 +3,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "./config"; // Adjust the path if necessary
+import New from "./new";
 
 const Details = () => {
   const { id } = useParams();
@@ -10,7 +12,7 @@ const Details = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8081/product/${id}`)
+      .get(`${BASE_URL}product/${id}`)
       .then((res) => {
         console.log(res);
         setProduct(res.data);
@@ -20,6 +22,7 @@ const Details = () => {
 
   return (
     <div>
+   <New/> 
       {product.length > 0 ? (
         <div className="container border p-4 custom-container">
          
@@ -34,7 +37,7 @@ const Details = () => {
           <div className="row">
             <div className="col-md-6 border pl-md-4">
               <img
-                src={`http://localhost:8081/images/` + product[0].image}
+                src={`${BASE_URL}images/` + product[0].product_image}
                 alt="Placeholder Image"
                 className="img-fluid"
               />
@@ -52,7 +55,7 @@ const Details = () => {
                 </li>
                 <li className="mb-3">
                   <h5>Description: </h5>
-                  {product[0].details}
+                  {product[0].product_details}
                 </li>
                 <li className="mb-3">Item 5</li>
               </ul>
