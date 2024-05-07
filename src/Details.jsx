@@ -22,7 +22,7 @@ const Details = () => {
 
   return (
     <div>
-   <New/> 
+   {/* <New/>  */}
       {product.length > 0 ? (
         <div className="container border p-4 custom-container">
          
@@ -44,9 +44,7 @@ const Details = () => {
             </div>
             <div className="col-md-6 border pr-md-4 d-flex align-items-stretch justify-content-flex custom-column">
               <ul className="list-unstyled custom-font text-left">
-                {" "}
-                {/* Apply custom-font class */}
-                {/* <li className="mb-3">ID: {product[0].product_id}</li> */}
+               
                 <li className="mb-3">
                   <h1 className="prodct-title"> {product[0].product_name}</h1>
                 </li>

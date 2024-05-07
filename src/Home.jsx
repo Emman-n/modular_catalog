@@ -43,15 +43,17 @@ return (
 
             <Link to={`/CategorieS/${category.idcategories}`} className="hover">
             <div className="services-section">
-              <div className="card-body">
-                <img style={{ width: "300px" }} src={`http://localhost:8081/images/${category.cat_image}`}
+              <div className="list-group list-group-flush">
+                <img  src={`${BASE_URL}images/${category.cat_image}`}
                   alt={`${category.cat_image}`} />
               </div>
             </div>
+            <br></br>
    
             <h5 style={{ textAlign: "center" }}>{category.category_name}</h5>
 
             </Link>
+            <br></br>
           </div>
 
         </div>

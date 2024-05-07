@@ -17,12 +17,9 @@ import "./style.css";
 
 
 function App() {
-  return (
-  
+  return (  
   <div>
- 
-
-     
+    
           <BrowserRouter>
           <Navbar/>
           <Routes>

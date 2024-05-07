@@ -4,23 +4,21 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from "./config"; // Adjust the path if necessary
 
-
-
 const EditCat = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}categorie/${id}`)
+      .get(`${BASE_URL}get_category/${id}`)
       .then((res) => {
         console.log(res);
         // Update state using functional update form
         setValues((v) => ({
           ...v,
           idcategories: res.data[0].idcategories,
-          categorie: res.data[0].categorie,
-          details: res.data[0].details,
+          category_name: res.data[0].category_name,
+          category_details: res.data[0].category_details,
           cat_image: res.data[0].cat_image, 
         }));
       })
@@ -30,8 +28,8 @@ const EditCat = () => {
 
   const [values, setValues] = useState({
     idcategories:'',
-    categorie: "",
-    details: "" ,
+    category_name: "",
+    category_details: "" ,
   });
 
 const handleUpdate = (event)=>{
@@ -39,6 +37,7 @@ const handleUpdate = (event)=>{
     axios.put(`${BASE_URL}editcat/${id}`, values)
     .then(res=>{
         console.log(res)
+        alert('Product info UPDATED');
     }).catch((err) => console.log(err));
 }
 
@@ -59,56 +58,62 @@ const handleCatDel = (id) => {
 
   return (
     <div>
-      <h1>EDIT Cat</h1>
+    <h1 className="center-title">EDIT CATEGORY INFO</h1>
+      <div className="center-container ">
 
-      <form onSubmit={handleUpdate}>
-      <h2>ID: {values.idcategories}</h2>
+        <form onSubmit={handleUpdate}>
+        <h2>ID: {values.idcategories}</h2>
 
-        <div className="mb-2">
-      
-        <img style={{ width: '200px' }} src={`${BASE_URL}images/` + values.cat_image} alt="no image"/>
-        <input type="file"  onChange={(e) => setValues({ ...values, cat_image: e.target.value })} />
+          <div className="mb-2">
+        
+          <img style={{ width: '200px' }} 
+          src={`${BASE_URL}images/` + values.cat_image} 
+          alt="no image"/>
+          <input type="file"  onChange={(e) => setValues({ ...values, cat_image: e.target.value })} />
+                  {/* src={`${BASE_URL}images/` + product[0].product_image} */}
 
-<br></br>
+          <br></br>
 
-          <label>name</label>
-          <input
-            type="text"
-            className="form-control"
-            value={values.categorie}
-            onChange={(e) =>
-              setValues({ ...values, categorie: e.target.value })
-            }
-          />
-        </div>
+            <label>name</label>
+            <input
+              type="text"
+              className="form-control"
+              value={values.category_name}
+              onChange={(e) =>
+                setValues({ ...values, category_name: e.target.value })
+              }
+            />
+          </div>
 
-        <div className="mb-2">
-          <label>detail</label>
+          <div className="mb-2">
+            <label>detail</label>
 
-          <input
-            type="text"
-            className="form-control"
-            value={values.details}
-            onChange={(e) => setValues({ ...values, details: e.target.value })}
-          />
-        </div>
+            <input
+              type="text"
+              className="form-control"
+              value={values.category_details}
+              onChange={(e) => setValues({ ...values, category_details: e.target.value })}
+            />
+          </div>
 
 
 
-        <button className="btn btn-success">Update</button>
+          <button className="btn btn-success">Update</button>
 
-        {/* <Link to={`/`} className="btn btn-sm btn-info"> 
-        <button className="btn btn-success" onClick={() => handleCatDel(values.idcategories)}>DELETE</button>
-         </Link> */}
+          {/* <Link to={`/`} className="btn btn-sm btn-info"> 
+          <button className="btn btn-success" onClick={() => handleCatDel(values.idcategories)}>DELETE</button>
+          </Link> */}
 
-         <button className="btn btn-danger" onClick={() => handleCatDel(values.idcategories)}>DELETE</button>
+          <button className="btn btn-danger" onClick={() => handleCatDel(values.idcategories)}>DELETE</button>
 
-      </form>
+        </form>
 
-      {/* <div className="container">
-            <input type="file" onChange={handleFile} />
-            <button onClick={handleSubmit}>Submit</button>
-        </div> */}
+        {/* <div className="container">
+              <input type="file" onChange={handleFile} />
+              <button onClick={handleSubmit}>Submit</button>
+          </div> */}
+
+      </div>
     </div>
   );
 };
