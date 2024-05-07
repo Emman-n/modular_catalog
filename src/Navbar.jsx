@@ -12,19 +12,19 @@ const Navbar = () => {
                 <li>
                     <ul style={{ display: 'flex', listStyleType: 'none', paddingRight:10 }}>
                         <li>
-                            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
                                 Home
                             </Link>
                         </li>
 
                         <li>
-                            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
                                 About
                             </Link>
                         </li>
 
                         <li>
-                            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
                                 User Mode
                             </Link>
                         </li>

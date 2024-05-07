@@ -20,16 +20,13 @@ const CategorieS = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
-
-
-
-
+  
   return (
     <div>
       <div className="container py-1">
 
         <Link
-        to={`/NewProd/${detail[0].idcategories}`}
+        to={`/NewProd/${id}`}
         className="btn btn-sm btn-info">
           ADD Product +
         </Link>
