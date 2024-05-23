@@ -9,8 +9,8 @@ const NewCat = () => {
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
-    categorie: "",
-    details: "",
+    category_name: "",
+    category_details: "",
     cat_image: "",
   });
 
@@ -24,17 +24,18 @@ const NewCat = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("cat_image", file);
-    formData.append("categorie", values.categorie);
-    formData.append("details", values.details);
+    formData.append("category_name", values.category_name);
+    formData.append("category_details", values.category_details);
 
     axios
-    .post(`${BASE_URL}categories`, formData) 
+    .post(`${BASE_URL}addCategories`, formData)
     .then((res) => {
-        console.log(res);
-        navigate("/");
-      })
-      .catch((err) => console.log(err));
-  };
+      console.log('SQL Query:', res.data.sql);
+      console.log('Values:', res.data.values);
+       navigate("/home"); 
+    })
+    .catch((err) => console.error(err));
+};
 
   return (
     <div>
@@ -48,7 +49,7 @@ const NewCat = () => {
               type="text"
               className="form-control"
               onChange={(e) =>
-                setValues({ ...values, categorie: e.target.value })
+                setValues({ ...values, category_name: e.target.value })
               }
             />
           </div>
@@ -58,7 +59,7 @@ const NewCat = () => {
               type="text"
               className="form-control"
               onChange={(e) =>
-                setValues({ ...values, details: e.target.value })
+                setValues({ ...values, category_details: e.target.value })
               }
             />
           </div>

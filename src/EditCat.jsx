@@ -46,7 +46,7 @@ const handleCatDel = (id) => {
   axios.delete(`${BASE_URL}deleteCat/${id}`)
     .then(res => {
       console.log(res)
-      navigate('/');
+      navigate('/home');
     })
     .catch(err => {
       console.log(err);
