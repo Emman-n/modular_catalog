@@ -67,7 +67,7 @@ const EditProd = () => {
           <img
             style={{ width: "200px" }}
             src={`${BASE_URL}images/` + values.image}
-            alt="no image"
+            alt="not found"
           />
           <br></br>
           <input

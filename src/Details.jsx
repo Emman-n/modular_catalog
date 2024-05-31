@@ -3,8 +3,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import { BASE_URL } from "./config"; // Adjust the path if necessary
-import New from "./new";
+import { BASE_URL } from "./config";  
+
 
 const Details = () => {
   const { id } = useParams();
@@ -38,7 +38,7 @@ const Details = () => {
             <div className="col-md-6 border pl-md-4">
               <img
                 src={`${BASE_URL}images/` + product[0].product_image}
-                alt="Placeholder Image"
+                alt="not found"
                 className="img-fluid"
               />
             </div>
@@ -69,23 +69,7 @@ const Details = () => {
         <p>NO DATA</p>
       )}
 
-      {/* 
-  <div className='w-50 bg-white rounded p-3 '>
-    <h2>Product Details</h2>
-    {product.length > 0 ? (
-    <>
-
-      <img style={{ width: '200px' }} src={`http://localhost:8081/images/` + product[0].image} alt="fuuck" />
-
-      <h2>ID: {product[0].product_id}</h2>
-      <h2>Name: {product[0].product_name}</h2>
-      <h2>Details: {product[0].details}</h2>
-
-    </>
-    ) : (
-    <p>Loading...</p>
-    )}
-  </div> */}
+    
     </div>
   );
 };

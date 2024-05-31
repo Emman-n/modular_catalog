@@ -68,7 +68,7 @@ const handleCatDel = (id) => {
         
           <img style={{ width: '200px' }} 
           src={`${BASE_URL}images/` + values.cat_image} 
-          alt="no image"/>
+          alt="not found"/>
           <input type="file"  onChange={(e) => setValues({ ...values, cat_image: e.target.value })} />
                   {/* src={`${BASE_URL}images/` + product[0].product_image} */}
 
