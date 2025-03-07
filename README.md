@@ -1,11 +1,11 @@
 A React-based frontend for the Modular Catalog system, allowing users to browse, manage categories and products, and interact with an intuitive UI.
 
 Features:
-	-	Manage Categories & Products – Add, edit, delete categories & products.
-	-	Role-based Access – Admin can manage, users can browse.
-	-	Modern UI – Built with React, Tailwind CSS, and React Router.
-	-	API Communication – Connects to a Node.js backend via Axios.
-	-	Hosted on AWS – Deployed using AWS services.
+ - Manage Categories & Products – Add, edit, delete categories & products.
+ - Role-based Access – Admin can manage, users can browse.
+ - Modern UI – Built with React, Tailwind CSS, and React Router.
+ - API Communication – Connects to a Node.js backend via Axios.
+ - Hosted on AWS – Deployed using AWS services.
 
 Tech Stack:
   - Frontend: React + Tailwind CSS
